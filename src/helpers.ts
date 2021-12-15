@@ -28,3 +28,20 @@ export const formatAMPM = (date: Date) => {
   var strTime = hours + ':' + minStr + ' ' + ampm;
   return strTime;
 };
+
+export const calculatePaceString = (dist: number, secs: number) => {
+  const calculatedPace = Math.floor(secs / dist);
+  const paceMins = Math.floor(calculatedPace / 60);
+  const paceSecs = calculatedPace - paceMins * 60;
+
+  let minStr = paceMins.toString();
+  let secStr = paceSecs.toString();
+  if (paceMins < 10) {
+    minStr = '0' + paceMins;
+  }
+  if (paceSecs < 10) {
+    secStr = '0' + paceSecs;
+  }
+  const pace = minStr + ':' + secStr;
+  return pace;
+};

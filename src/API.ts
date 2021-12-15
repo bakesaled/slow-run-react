@@ -9,8 +9,12 @@ export type Activity = {
   average_speed: number;
   max_speed: number;
   total_elevation_gain: number;
+  elev_low: number;
   start_date_local: string;
   start_time_local: string;
+  average_heartrate: number;
+  average_watts: number;
+  kilojoules: number;
 };
 
 export type Activities = {
