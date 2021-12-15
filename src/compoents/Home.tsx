@@ -119,9 +119,13 @@ const Home: React.FC = () => {
         )} min/km`,
         elevationGain: `${activity.total_elevation_gain} m`,
         lowElevation: `${activity.elev_low} m`,
-        averageHeartrate: activity.average_heartrate.toFixed(0),
-        averageWatts: activity.average_watts.toFixed(0),
-        kilojoules: activity.kilojoules.toFixed(0),
+        averageHeartrate: activity.average_heartrate
+          ? activity.average_heartrate.toFixed(0)
+          : '',
+        averageWatts: activity.average_watts
+          ? activity.average_watts.toFixed(0)
+          : '',
+        kilojoules: activity.kilojoules ? activity.kilojoules.toFixed(0) : '',
       };
     }
   );
