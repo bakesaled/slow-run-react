@@ -117,8 +117,12 @@ const Home: React.FC = () => {
           activity.distance / 1000,
           activity.moving_time
         )} min/km`,
-        elevationGain: `${activity.total_elevation_gain} m`,
-        lowElevation: `${activity.elev_low} m`,
+
+        //Convert elevations to feet
+        elevationGain: `${(activity.total_elevation_gain * 3.281).toFixed(
+          0
+        )} ft`,
+        lowElevation: `${(activity.elev_low * 3.281).toFixed(0)} ft`,
         averageHeartrate: activity.average_heartrate
           ? activity.average_heartrate.toFixed(0)
           : '',
