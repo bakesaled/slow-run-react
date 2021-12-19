@@ -19,8 +19,8 @@ type DisplayActivity = {
   type: string;
   distance: string;
   movingTime: string;
-  averageSpeed: string;
-  maxSpeed: string;
+  // averageSpeed: string;
+  // maxSpeed: string;
   pace: string;
   elevationGain: string;
   lowElevation: string;
@@ -54,14 +54,14 @@ const columns: TableColumn[] = [
     name: 'moving_time',
     text: 'moving time',
   },
-  {
-    name: 'average_speed',
-    text: 'average speed',
-  },
-  {
-    name: 'max_speed',
-    text: 'max speed',
-  },
+  // {
+  //   name: 'average_speed',
+  //   text: 'average speed',
+  // },
+  // {
+  //   name: 'max_speed',
+  //   text: 'max speed',
+  // },
   {
     name: 'pace',
     text: 'pace',
@@ -111,8 +111,8 @@ const Home: React.FC = () => {
         type: activity.type,
         distance: `${(activity.distance / 1000).toFixed(1)} km`,
         movingTime: movTimeString,
-        averageSpeed: `${(activity.average_speed * 3.6).toFixed(2)} kmph`,
-        maxSpeed: `${(activity.max_speed * 3.6).toFixed(2)} kmph`,
+        // averageSpeed: `${(activity.average_speed * 3.6).toFixed(2)} kmph`,
+        // maxSpeed: `${(activity.max_speed * 3.6).toFixed(2)} kmph`,
         pace: `${calculatePaceString(
           activity.distance / 1000,
           activity.moving_time
