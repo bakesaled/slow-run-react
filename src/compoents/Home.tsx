@@ -3,6 +3,7 @@ import {
   calculatePaceString,
   convertSecondsToString,
   formatAMPM,
+  localizeDateFromServer,
 } from '../helpers';
 import { useHomeFetch } from '../hooks/useHomeFetch';
 
@@ -98,15 +99,19 @@ const Home: React.FC = () => {
   const displayActivities: DisplayActivity[] = state.results.map(
     (activity): DisplayActivity => {
       const movTimeString = convertSecondsToString(activity.moving_time);
-      const startTime = new Date(activity.start_time_local);
+
+      const localStartDate = localizeDateFromServer(
+        new Date(activity.start_date),
+        activity.utc_offset //-28800; // in seconds, from API call
+      );
 
       return {
-        date: new Date(activity.start_date_local).toLocaleDateString('en-US', {
+        date: localStartDate.toLocaleDateString('en-US', {
           weekday: 'short',
           month: '2-digit',
           day: '2-digit',
         }),
-        time: formatAMPM(startTime),
+        time: formatAMPM(localStartDate),
         name: activity.name,
         type: activity.type,
         distance: `${(activity.distance / 1000).toFixed(1)} km`,

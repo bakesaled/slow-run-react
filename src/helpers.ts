@@ -45,3 +45,16 @@ export const calculatePaceString = (dist: number, secs: number) => {
   const pace = minStr + ':' + secStr;
   return pace;
 };
+
+export const localizeDateFromServer = (
+  dateFromServer: Date,
+  serverOffset: number
+) => {
+  const serverOffsetMillis = 1000 * serverOffset;
+  const localOffset = new Date().getTimezoneOffset(); // in minutes
+  const localOffsetMillis = 60 * 1000 * localOffset;
+  const localStartDate = new Date(
+    dateFromServer.getTime() + localOffsetMillis + serverOffsetMillis
+  );
+  return localStartDate;
+};

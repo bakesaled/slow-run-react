@@ -10,8 +10,9 @@ export type Activity = {
   max_speed: number;
   total_elevation_gain: number;
   elev_low: number;
-  start_date_local: string;
-  start_time_local: string;
+  start_date: string;
+  utc_offset: number;
+  timezone: string;
   average_heartrate: number;
   average_watts: number;
   kilojoules: number;
