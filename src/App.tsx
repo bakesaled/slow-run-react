@@ -1,22 +1,15 @@
 import React from 'react';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Dashboard from './components/Dashboard';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import Header from './components/Header';
-import Home from './components/Home';
-import NotFound from './components/NotFound';
+import Sidebar from './components/Sidebar';
 
 //Styles
 import { GlobalStyle } from './GlobalStyle';
+import MainContent from './components/MainContent';
 
 const App: React.FC = () => (
   <Router>
-    <Header />
-    <Routes>
-      <Route path="/" element={<Dashboard />} />
-      <Route path="/activities" element={<Home />} />
-      <Route path="/*" element={<NotFound />} />
-    </Routes>
+    <MainContent />
     <GlobalStyle />
   </Router>
 );
