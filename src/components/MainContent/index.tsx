@@ -1,24 +1,20 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Dashboard from '../Dashboard';
-import Home from '../Home';
-import NotFound from '../NotFound';
+import { Outlet } from 'react-router-dom';
 import Header from '../Header';
 
 import { Wrapper, Content } from './MainContent.styles';
 import Sidebar from '../Sidebar';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 const MainContent: React.FC = () => {
+  const account = useSelector((state: RootState) => state.auth.account);
   return (
     <Wrapper>
-      <Sidebar />
+      {account && <Sidebar />}
       <Content>
         <Header />
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/activities" element={<Home />} />
-          <Route path="/*" element={<NotFound />} />
-        </Routes>
+        <Outlet />
       </Content>
     </Wrapper>
   );

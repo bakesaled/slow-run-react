@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 //API
-import API, { Activity } from '../API';
+import activitiesService, { Activity } from '../services/activities.service';
 
 const initialState = {
   results: [] as Activity[],
@@ -17,13 +17,13 @@ export const useHomeFetch = () => {
       setError(false);
       setLoading(true);
 
-      const activities = await API.fetchActivities();
+      const activities = await activitiesService.fetchActivities();
 
       setState(() => ({
         ...activities,
         results: activities.results,
       }));
-    } catch (error) {
+    } catch (err) {
       setError(true);
     }
     setLoading(false);

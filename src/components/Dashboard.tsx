@@ -8,7 +8,7 @@ const Dashboard: React.FC = () => {
 
   if (error) return <div>Something went wrong...</div>;
 
-  let totalMilesRun: number = 0;
+  let totalMilesRun = 0;
   state.results.forEach((activity) => {
     if (activity.type.toLowerCase() === 'run') {
       totalMilesRun += activity.distance;

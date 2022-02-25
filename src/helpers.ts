@@ -20,12 +20,12 @@ export const convertSecondsToString = (secNum: number) => {
 
 export const formatAMPM = (date: Date) => {
   let hours = date.getHours();
-  let minutes = date.getMinutes();
-  let ampm = hours >= 12 ? 'pm' : 'am';
+  const minutes = date.getMinutes();
+  const ampm = hours >= 12 ? 'pm' : 'am';
   hours = hours % 12;
   hours = hours ? hours : 12; // the hour '0' should be '12'
   const minStr = minutes < 10 ? '0' + minutes : minutes;
-  var strTime = hours + ':' + minStr + ' ' + ampm;
+  const strTime = hours + ':' + minStr + ' ' + ampm;
   return strTime;
 };
 

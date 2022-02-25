@@ -8,7 +8,6 @@ import {
 import { useHomeFetch } from '../hooks/useHomeFetch';
 
 //Components
-import Grid from './Grid';
 import Spinner from './Spinner';
 import Table, { TableColumn } from './Table';
 
